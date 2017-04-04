@@ -17,17 +17,24 @@
 
 package com.example.jcobb.myapplication;
 
+import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.ConnectivityManager.NetworkCallback;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.NetworkRequest;
+import android.os.Build;
 
 
 /**
  * Created by JohnC (John Cobb) on 4/4/17.
  */
 
+@TargetApi(Build.VERSION_CODES.CUPCAKE)
 public class ConnectivityListener extends BroadcastReceiver {
 
     public static ConnectivityReceiverListener connectivityReceiverListener;
@@ -68,3 +75,29 @@ public class ConnectivityListener extends BroadcastReceiver {
 
 
 }
+
+
+//@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//public class ConnectivityStateMonitor extends NetworkCallback {
+//
+//    final NetworkRequest request;
+//
+//
+//    public ConnectivityStateMonitor() {
+//        request = new NetworkRequest.Builder()
+//                .addTransportType(NetworkCapabilities.TRANSPORT_CELLULAR)
+//                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+//                .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET).build();
+//    }
+//
+//    @Override
+//    public void onAvailable(Network network) {
+//        // TODO:
+//    }
+//
+//    @Override
+//    public void onLost(Network network) {
+//        // TODO:
+//    }
+//
+//}
