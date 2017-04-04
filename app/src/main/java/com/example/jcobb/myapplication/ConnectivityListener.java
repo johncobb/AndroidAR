@@ -34,6 +34,24 @@ import android.os.Build;
  * Created by JohnC (John Cobb) on 4/4/17.
  */
 
+interface IConnectivityListener {
+        public void onAvailable();
+        public void onLost();
+};
+
+
+class StateMonitor implements IConnectivityListener {
+    @Override
+    public void onAvailable() {
+
+    }
+
+    @Override
+    public void onLost() {
+
+    }
+}
+
 @TargetApi(Build.VERSION_CODES.CUPCAKE)
 public class ConnectivityListener extends BroadcastReceiver {
 
